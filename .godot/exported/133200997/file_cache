@@ -1,0 +1,13 @@
+res://hud/hud.tscn::20d0535f7cb4718ce131509be973810a::1719711658::res://.godot/exported/133200997/export-52930d4a902a7043e922338d65f6e679-hud.scn
+res://level/level.tscn::6962a38feb71c52726f40d07b4b745cd::1719887121::res://.godot/exported/133200997/export-6dcf1f1cf49f4ecbd395fe92f3dd7400-level.scn
+res://menus/credits.tscn::467cf02e742a09b0a732a0e93a65eae3::1719767169::res://.godot/exported/133200997/export-f80251982b35fac3c3ca841d83ab416d-credits.scn
+res://menus/high_scores_table.tscn::44f675750e4f63af5c9695815b1a9838::1719883850::res://.godot/exported/133200997/export-b9770cfcac36e2fa6f082479f397d80d-high_scores_table.scn
+res://menus/menu.tscn::d410e95ef4870ef1a2ed6c499054bc7d::1719768345::res://.godot/exported/133200997/export-6d0445dc016a29b1fec539550c3a68ff-menu.scn
+res://menus/options.tscn::49e38209e044d946ebe974d43221316f::1719883850::res://.godot/exported/133200997/export-12a57b9e62a2bf731d9b0ab637f746ff-options.scn
+res://objects/ball/ball.tscn::666b9307392a80911aa8a89d34878372::1719883850::res://.godot/exported/133200997/export-d6731992664df05cb6ade566b9470f43-ball.scn
+res://objects/brick/brick.tscn::d09e80bde4b32e273c79e5b02cddc958::1719710363::res://.godot/exported/133200997/export-1156168026d144095a7289f9d7d821ec-brick.scn
+res://objects/player/player.tscn::4844ef033c6e75f355fb10ab0c00ec52::1719768583::res://.godot/exported/133200997/export-af43f1489f8ddd2e3337968c398c1c3c-player.scn
+res://objects/row/row.tscn::f2c6dff7d467329c0c24f5c8f40d54eb::1719710804::res://.godot/exported/133200997/export-736ba14bad0f03767eb420be1ba16d76-row.scn
+res://scene_manager/scene_manager.tscn::62ef1f231ce17c8165735c356d968803::1719768344::res://.godot/exported/133200997/export-0d41b243a67fb0cc4fafc6bf3a9cc412-scene_manager.scn
+res://themes/default_bus_layout.tres::97caee3362e8f8bc33905663c4276162::1719766481::res://.godot/exported/133200997/export-b95f5faed0e07348a2e5bbcdc7e333c3-default_bus_layout.res
+res://themes/default_theme.tres::925b6a13fec21ba1f77430b313cfecc8::1719711485::res://.godot/exported/133200997/export-090902c623f69d1979158a68112eedf1-default_theme.res

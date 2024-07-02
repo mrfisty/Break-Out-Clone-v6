@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dca54tuh2cay0"]
+
+[ext_resource type="Script" path="res://objects/row/row.gd" id="1_lm32x"]
+[ext_resource type="PackedScene" uid="uid://cdlv2sx5xaprf" path="res://objects/brick/brick.tscn" id="2_tbh2u"]
+
+[node name="Row" type="Node2D"]
+script = ExtResource("1_lm32x")
+brick_tscn = ExtResource("2_tbh2u")

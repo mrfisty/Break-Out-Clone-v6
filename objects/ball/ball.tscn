@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://jc30blp01e3w"]
+
+[ext_resource type="Script" path="res://objects/ball/ball.gd" id="1_o8yel"]
+[ext_resource type="Texture2D" uid="uid://chlickhpgbppe" path="res://assets/images/cube.png" id="2_06av6"]
+[ext_resource type="AudioStream" uid="uid://c2rn4gvs0io6d" path="res://assets/audio/sfx/hit_brick.wav" id="3_y0xow"]
+[ext_resource type="AudioStream" uid="uid://bxckr8mm0gj36" path="res://assets/audio/sfx/hit_paddle.wav" id="4_wvv1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bd3j3"]
+size = Vector2(4, 4)
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_o8yel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_06av6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_bd3j3")
+
+[node name="HitBrickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y0xow")
+bus = &"SFX"
+
+[node name="HitPaddleSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wvv1q")
+bus = &"SFX"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://x7nrns1p5vkv"]
+
+[ext_resource type="Script" path="res://hud/hud.gd" id="1_hb45v"]
+[ext_resource type="Theme" uid="uid://ckmqat7sg1jdb" path="res://themes/default_theme.tres" id="2_agen0"]
+
+[node name="HUD" type="Node"]
+script = ExtResource("1_hb45v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+
+[node name="LivesLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_agen0")
+theme_override_font_sizes/font_size = 8
+text = "Lives: 0"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("2_agen0")
+theme_override_font_sizes/font_size = 8
+text = "Score: 0"
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_agen0")
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER"

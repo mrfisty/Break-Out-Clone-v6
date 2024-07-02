@@ -1,0 +1,32 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Break Out Clone v6"
+run/main_scene="res://menus/menu.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+
+[audio]
+
+buses/default_bus_layout="res://themes/default_bus_layout.tres"
+
+[autoload]
+
+SceneManager="*res://scene_manager/scene_manager.tscn"
+HighScores="*res://menus/high_scores.gd"
+OptionsGlobal="*res://menus/options_global.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/size/mode=3
+window/stretch/mode="viewport"

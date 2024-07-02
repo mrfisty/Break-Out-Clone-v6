@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmbayqecel0h1"]
+
+[ext_resource type="Texture2D" uid="uid://chlickhpgbppe" path="res://assets/images/cube.png" id="1_6dqfr"]
+[ext_resource type="PackedScene" uid="uid://cfom0rr6rcda5" path="res://objects/player/player.tscn" id="1_8uo8n"]
+[ext_resource type="Script" path="res://level/level.gd" id="1_skr86"]
+[ext_resource type="AudioStream" uid="uid://46rto3jq100l" path="res://assets/audio/music/breakout_00.mp3" id="2_7ggn4"]
+[ext_resource type="PackedScene" uid="uid://x7nrns1p5vkv" path="res://hud/hud.tscn" id="2_32t82"]
+[ext_resource type="PackedScene" uid="uid://jc30blp01e3w" path="res://objects/ball/ball.tscn" id="2_dq3nn"]
+[ext_resource type="AudioStream" uid="uid://tce61kd24mnn" path="res://assets/audio/sfx/ball_died.wav" id="3_3tvxa"]
+[ext_resource type="PackedScene" uid="uid://dca54tuh2cay0" path="res://objects/row/row.tscn" id="3_35q8e"]
+[ext_resource type="AudioStream" uid="uid://btxd87wfv01mc" path="res://assets/audio/sfx/game_over.wav" id="4_ct76m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8x6l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xiudi"]
+
+[node name="Level" type="Node"]
+script = ExtResource("1_skr86")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_7ggn4")
+volume_db = 2.0
+autoplay = true
+bus = &"Music"
+
+[node name="BallDiedSFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_3tvxa")
+bus = &"SFX"
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_ct76m")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+metadata/_edit_lock_ = true
+
+[node name="HUD" parent="." instance=ExtResource("2_32t82")]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="TopWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(320, 8)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/TopWall"]
+scale = Vector2(160, 4)
+texture = ExtResource("1_6dqfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
+scale = Vector2(32, 0.8)
+shape = SubResource("RectangleShape2D_b8x6l")
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(8, 240)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/LeftWall"]
+scale = Vector2(4, 120)
+texture = ExtResource("1_6dqfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+scale = Vector2(0.8, 24)
+shape = SubResource("RectangleShape2D_b8x6l")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(632, 240)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/RightWall"]
+scale = Vector2(4, 120)
+texture = ExtResource("1_6dqfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+scale = Vector2(0.8, 24)
+shape = SubResource("RectangleShape2D_b8x6l")
+
+[node name="Rows" type="Node" parent="."]
+
+[node name="RedRow" parent="Rows" instance=ExtResource("3_35q8e")]
+position = Vector2(24, 64)
+row_size = 38
+row_points = 7
+
+[node name="OrangeRow" parent="Rows" instance=ExtResource("3_35q8e")]
+position = Vector2(24, 88)
+row_size = 38
+row_color = 1
+row_points = 5
+
+[node name="GreenRow" parent="Rows" instance=ExtResource("3_35q8e")]
+position = Vector2(24, 112)
+row_size = 38
+row_color = 2
+row_points = 3
+
+[node name="YellowRow" parent="Rows" instance=ExtResource("3_35q8e")]
+position = Vector2(24, 136)
+row_size = 38
+row_color = 3
+row_points = 1
+
+[node name="Player" parent="." instance=ExtResource("1_8uo8n")]
+position = Vector2(320, 440)
+
+[node name="Ball" parent="." instance=ExtResource("2_dq3nn")]
+position = Vector2(320, 240)
+
+[node name="DeadZone" type="Area2D" parent="."]
+position = Vector2(100, 510)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+shape = SubResource("WorldBoundaryShape2D_xiudi")
+
+[connection signal="body_entered" from="DeadZone" to="." method="_on_dead_zone_body_entered"]

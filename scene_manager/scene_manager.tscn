@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmqffnta0u0hx"]
+
+[ext_resource type="Script" path="res://scene_manager/scene_manager.gd" id="1_uvukh"]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_uvukh")
+scenes = {
+"Credits": &"res://menus/credits.tscn",
+"Level": &"res://level/level.tscn",
+"Menu": &"res://menus/menu.tscn",
+"Options": &"res://menus/options.tscn",
+"Scores": &"res://menus/high_scores_table.tscn"
+}
